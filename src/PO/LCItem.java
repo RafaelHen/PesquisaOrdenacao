@@ -155,26 +155,64 @@ public class LCItem {
 			}
 		}
 	}
+	
+	public void shellsort() {
+		int i, j, h;
+		Item temp;
+		h = 1;
+		do {
+			h = 3 * h + 1;
+			System.out.println("H encontrados: " + h);
+		} while (h < this.nElem);
+		do {
+			h = h / 3 - 2; // Visualizar os valores de H para depois acertar.
+			System.out.println("\nValor da matriz quando o H for: " + h);
+			for (i = h; i < this.nElem; i++) {
+				temp = this.listaCont[i];
+				j = i;
+				while (this.listaCont[j - h].getChave() > temp.getChave()) {
+					this.listaCont[j] = this.listaCont[j - h];
+					j -= h;
+					if (j < h)
+						break;
+				}
+				this.listaCont[j] = temp;
+			}
+			for (Item item : listaCont) {
+				System.out.print(item.toString() + " ");
+			}
+		} while (h != 1);
+	}
+	
+	public void quicksort() {
+		ordena(0, this.nElem - 1);
+	}
 
 	public void bubblesort() {
 		int LSup, i, j;
+		int iteracao = 0;
 		Item temp;
 		LSup = this.nElem - 1;
 		do {
 			j = 0;
-			for (i = 0; i < LSup; j++) {
+			for (i = 0; i < LSup; i++) {
 				if (this.listaCont[i].getChave() > this.listaCont[i + 1].getChave()) {
 					temp = this.listaCont[i];
 					this.listaCont[i] = this.listaCont[i + 1];
 					this.listaCont[i + 1] = temp;
 					j = i;
-					System.out.println(this.listaCont);
 				}
 			}
 			LSup = j;
-			System.out.println(toString());
+			iteracao++;
+			System.out.println("\nIteração: " + iteracao);
+			for (Item item : listaCont) {
+				System.out.print(item.toString() + " ");
+			}
 		} while (LSup >= 1);
 	}
+
+
 
 	public void insercaoDireta() {
 		int i, j;
@@ -188,10 +226,6 @@ public class LCItem {
 			}
 			this.listaCont[j + 1] = temp;
 		}
-	}
-
-	public void quicksort() {
-		ordena(0, this.nElem - 1);
 	}
 
 	private void ordena(int esq, int dir) {

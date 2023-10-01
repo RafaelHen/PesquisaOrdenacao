@@ -1,13 +1,12 @@
 package PO;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class PesquisaOrdenacao {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Tamanho: ");
+		System.out.println("Tamanho do vetor: ");
 		int tamanho = sc.nextInt();
 		
 		LCItem lcItem = new LCItem(tamanho);
@@ -16,7 +15,8 @@ public class PesquisaOrdenacao {
 			lcItem.insereFim(new Item(chave));
 		}
 		
-		lcItem.inserçãoDireta();
+//		lcItem.shellsort();
+		lcItem.bubblesort();
 	}
 
 }
