@@ -189,8 +189,7 @@ public class LCItem {
 	}
 
 	public void bubblesort() {
-		int LSup, i, j;
-		int iteracao = 0;
+		int LSup, i, j, iteracao = 0;
 		Item temp;
 		LSup = this.nElem - 1;
 		do {
@@ -215,16 +214,21 @@ public class LCItem {
 
 
 	public void insercaoDireta() {
-		int i, j;
+		int i, j, iteracao = 0;
 		Item temp;
 		for (i = 1; i < this.nElem; i++) {
 			temp = this.listaCont[i];
+			System.out.println("\nIteração: " + iteracao);
+			for (Item item : listaCont) {
+				System.out.print(item.toString() + " ");
+			}
 			j = i - 1;
 			while ((j >= 0) && (this.listaCont[j].getChave() > temp.getChave())) {
 				this.listaCont[j + 1] = this.listaCont[j];
 				j--;
 			}
 			this.listaCont[j + 1] = temp;
+			iteracao++;
 		}
 	}
 

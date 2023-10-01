@@ -15,8 +15,14 @@ public class PesquisaOrdenacao {
 			lcItem.insereFim(new Item(chave));
 		}
 		
+		lcItem.selecaoDireta();
+//		lcItem.bubblesort();
+//		lcItem.shakersort();
+//		lcItem.insercaoDireta();		
 //		lcItem.shellsort();
-		lcItem.bubblesort();
+//		lcItem.quicksort();
+
+		
 	}
 
 }
